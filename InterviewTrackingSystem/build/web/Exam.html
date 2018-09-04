@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>Questions</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <style>
+            div#test{
+                border: #000 1px solid;padding: 10px 40px 40px 40px;
+            }
+        </style>
+        <script>
+            var pos = 0, test, timer, test_status, timer_status, question, choice, choices, chA, chB, chC, correct=0 ;
+            var questions = [
+                    [" The Java interpreter is used for the execution of the source code","true","false" ,"none of the above", "A"],
+                    [" On successful compilation a file with the class extension is created","true","false","none of the above", "A"],
+                    [" You would use the ____ operator to create a single instance of a named class","new","dot","none of the above", "A"],
+                    [" When may a constructor be called without specifying arguments", " When the default constructor is not called", "When the name of the constructor differs from that of the class","When the name of the constructor differs from that of the class","C"],
+                    [" which access modifier gives global priviledge","public","private","protected", "A"],
+                    [" Java discovered by ____","James Gosling","Dennis Ritchie","Bill Gates", "A"],
+                    [" size of char in java...","2","3","5", "A"],
+                    [" size of String in java...","2","3","variable", "C"],
+                    [" Static polymorphism implemented in java...","method overloading","method overriding","other", "A"],
+                    [" java supports OOPL?","ture","false","none of these", "A"]
+               ];
+			   
+			   function countDown(secs,elem){
+                    var element = document.getElementById(elem);
+                    element.innerHTML = "<h3>Your time starts now: " +secs+ " seconds left</h3>";
+					timer= _("timer");
+					if(pos >= questions.length)
+					{
+						_("timer_status").innerHTML = "Time Ended";
+					}
+                    if(secs < 1){
+                        clearTimeout(timer);
+                        element.innerHTML = '<h2>Exam Complete!</h2>';
+                        element.innerHTML += '<h1>Thank you</h1>';
+                        
+                    }
+                    secs--;
+                    var timer = setTimeout('countDown('+secs+',"'+elem+'")',1000);
+                }
+               function _(x){
+                   return document.getElementById(x);
+               }
+               function renderQuestion(){
+                   test= _("test");
+                   if(pos >= questions.length){
+                       test.innerHTML = "<h2>You Got "+correct+" of "+questions.length+" questions correct</h2>";
+                       _("test_status").innerHTML = "Test Completed";
+                       pos = 0;
+                       correct = 0;
+                       return false;
+                   }
+                   _("test_status").innerHTML = "Question "+(pos+1)+" of "+questions.length;
+                   question = questions[pos][0];
+                   chA = questions[pos][1];
+                   chB = questions[pos][2];
+                   chC = questions[pos][3];
+                   test.innerHTML = "<h3>"+question+"</h3>";
+                   test.innerHTML += "<input type='radio' name='choices' value='A'> "+chA+"<br>";
+                   test.innerHTML += "<input type='radio' name='choices' value='B'> "+chB+"<br>";
+                   test.innerHTML += "<input type='radio' name='choices' value='C'> "+chC+"<br><br>";
+                   test.innerHTML += "<button onclick='checkAnswer()'>Submit Answer</button>";
+               
+				}
+                function checkAnswer(){
+                    choices = document.getElementsByName("choices");
+                    for(var i=0; i<choices.length; i++){
+                    if(choices[i].checked){
+                        choice = choices[i].value;
+                    }
+                    }
+                    if(choice == questions[pos][4]){
+                        correct++;
+                        
+                    }
+                    pos++;
+                    renderQuestion();
+					return pos;
+                }
+       
+                   
+                window.addEventListener("load", renderQuestion, false);
+          </script>    
+            </head>
+    <body background="back.jpg">
+		<div id="status">
+                        
+                    </div>
+		<!--<script type="text/javascript">countDown(50,"status");-->
+                        </script>
+		<div id="status"></div>
+        
+        <h2 id="test_status"></h2>        
+        <div id="test"></div>
+        <div id="test1"></div>
+        <br>
+        <form align="center" action="ResultDisplay.jsp">
+        <input type="submit" value="Get Result">
+    </body>
+</html>

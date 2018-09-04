@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <link rel="stylesheet" href="css/style.css">
+        <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Open+Sans:400,700">
+  <!--<style>
+   body {background-color: powderblue;}
+  -->
+    <style>
+h5 {font-family:  'Hoefler Text', Georgia, 'Times New Roman', serif;
+	font-weight: normal;
+        font-size: 1.75em;
+	color:Lemonchiffon;
+	letter-spacing: .2em;
+	line-height: 1.1em;
+	margin:0px;
+	text-align: center;
+	text-transform: uppercase;
+	background:black;
+}
+    h2   {color: black;background-size: 300px ;}
+    form    {color: lightgray;background: url(33.jpg);background-size:470px;
+                background-repeat: no-repeat;
+                padding:10px ;
+                background-position: right top;
+            }
+iframe { 
+position: absolute; left: 30px; top: 140px;
+border: 2px sky blue; 
+}
+    ul{
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+            
+      }
+         a:link,a:visited{
+            display: block;
+            color: #FFFFFF;
+            background-color: #98bf21;
+            width: 143px;
+            text-align: center;
+            padding: 4px;
+            text-transform: uppercase;
+            text-decoration: none;
+            
+        }
+        a:hover,a:active{
+            background-color: #7A991A;
+        }
+        li{
+            float: left;
+        }        
+    </style>
+        <title>InterviewTrackingSystem</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script src="validationUser.js" type="text/javascript"></script>
+        <script src="validationAdmin.js" type="text/javascript"></script>
+    </head>
+         <body background="55.jpg">
+<h5><u>Welcome To Online Interview System</u></h5>
+        <ul>
+                <li><a href="index.html">HOME</a></li>
+                <li><a href="results.html">RESULTS</a></li>
+                <li><a href="samples.html">SAMPLE Q and A</a></li>
+                <li><a href="news.html">NEWS</a></li>
+	  <li><a href="aboutus.html">ABOUT US</a></li>
+                   <li><a href="rules_1.html">RULE BOOK</a></li>
+                
+         </ul>
+<br>
+<div id="wrapper">
+    <div>Content</div>
+<iframe src="trys.html" height="420" width="640"frameborder="2"></iframe>
+    </div>
+<div>
+ 
+         <form name="form1" align="right" action="UserEntry" method="get" onsubmit="return validationUser()">
+  
+	 <h1><u>Fill in to Start!</u></h1>
+ 
+                  First Name:
+    <input type="text" align="center" name="firstname"><br>
+  
+                  Last Name:
+    <input type="text" name="lastname"><br>
+    
+	Password  :
+     <input type="password" name="pwd"><br>
+   
+                  Mobile No:
+         <input type="text" name="mobile"><br>
+    
+	Email ID   :
+       <input type="text" name="emailid"><br>
+  
+                 Enter Gender : <input type="radio" name="sex" value="male">Male
+    <input type="radio" name="sex" value="female">Female<br>
+ 	<input type="submit" value=" Get Started "align="center"><br>
+        
+ 	  
+ </form>
+    
+ <br>
+<br>
+
+<div id="login">
+      <form name='form2' align='right' method="post" action="login.jsp" onsubmit="return validateAdmin()" >
+    
+    <span class="fontawesome-user"></span>
+  
+<h1><b>Admin Login</b></h1><br>
+    Username:
+   <input type="text" id="user" name="useradmin" placeholder="Username">
+ <br>     
+ 
+        <span class="fontawesome-lock"></span><br>
+    Password:   
+   <input type="password" id="pass" name="pwdadmin" placeholder="Password">
+ <br>   <br>   
+  
+     <!--<input type="submit" value="Login">-->
+     <div align="right"><a href="adminpage.html"><button type="button">Login</button></a></div>
+
+</form>
+ <br>
+<style stylesheet="text/css">
+.marquee {
+ height: 35px;	
+ overflow: hidden;
+ position: relative;
+ background: #98bf21;
+ color: black;
+ border: 1px solid orange;
+}
+.marquee p {
+-webkit-marquee-speed: fast;
+
+ position: absolute;
+scrollamount:10;
+ width: 100%;
+ height: 100%;
+ margin: 0;
+ line-height: 35px;
+ text-align: center;
+ /* Starting position */
+ -moz-transform:translateX(100%);
+ -webkit-transform:translateX(100%);	
+ transform:translateX(100%);
+ /* Apply animation to this element */	
+ -moz-animation: scroll-left 5s linear infinite;
+ -webkit-animation: scroll-left 5s linear infinite;
+ animation: scroll-left 20s linear infinite;
+}
+/* Move it (define the animation) */
+@-moz-keyframes scroll-left {
+ 0%   { -moz-transform: translateX(100%); }
+ 100% { -moz-transform: translateX(-100%); }
+}
+@-webkit-keyframes scroll-left {
+ 0%   { -webkit-transform: translateX(100%); }
+ 100% { -webkit-transform: translateX(-100%); }
+}
+@keyframes scroll-left {
+ 0%   { 
+ -moz-transform: translateX(100%); /* Browser bug fix */
+ -webkit-transform: translateX(100%); /* Browser bug fix */
+ transform: translateX(100%); 		
+ }
+ 100% { 
+ -moz-transform: translateX(-100%); /* Browser bug fix */
+ -webkit-transform: translateX(-100%); /* Browser bug fix */
+ transform: translateX(-100%); 
+ }
+}
+</style>
+<div class="marquee">
+<p>For more details call us at our Toll Free No :  +918276354156,  +917683524317, +917654328765, +9162537845,+9165374876</p>
+</div>
+ </div>
+    </body>
+</html>
